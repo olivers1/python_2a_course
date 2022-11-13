@@ -1,7 +1,7 @@
-
 class FightActions:
     def fight(self, defender):
-        pass
+        defender.power_level -= spiderman.hit_points
+        print("taking a hit")
 
 
 class CharacterAttributes:
@@ -36,6 +36,9 @@ spiderman.go_web_go()
 
 print("batman power lever:", batman.power_level)
 print("spiderman hitpoints:", spiderman.hit_points)
+
+spiderman.fight(batman)
+print("batman power lever:", batman.power_level)
 
 
 
