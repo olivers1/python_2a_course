@@ -1,0 +1,32 @@
+thoughts:
+-creating a list is much faster than creating a deque or SimpleQue (any double implemented queue using linked list) 
+because list elements do not have any relation awareness (elements not linked to each other). Thus elements in the 
+list do not have any next nor any prev attributes.
+-appending elements to a list, deque or SimpleQue is taking approx. same amount of time since only the added element 
+has to be taken care of for a list meanwhile for a deque and/or SimpleQue its reference parameters (next, prev and tail) 
+must be updated the last item in deque and SimpleQue before the Node (element) of deque/SimpleQue is added.
+-removing the far most left Node or element for deque/SimpleQue and list respectively is performed in different ways, 
+deque and SimpleQue are much faster; 
+ -for a list, all items in the list are shifted to the left one after another updating the position index for every element 
+  the list contain
+ -for deque and/or SimpleQue only the far most left Node is updated with its next, prev. attributes while the rest of the 
+  its list remained untouched
+
+
+measurement:
+olivers@MacBook-Pro python_2a_course % /usr/local/bin/python3 /Users/olivers/Documents/Programmering/vscode/python/python_2a_course/measure.py
+Time: 0.0090980 (SIZE: 200000, create_deque)
+Time: 0.0202127 (SIZE: 200000, popleft)
+Time: 0.0458786 (SIZE: 200000, append)
+Time: 0.1418064 (SIZE: 200000, create_simple_queue)
+Time: 0.0778545 (SIZE: 200000, popleft)
+Time: 0.1170280 (SIZE: 200000, append)
+Time: 0.0059058 (SIZE: 200000, create_list)
+Time: 3.9933063 (SIZE: 200000, popleft)
+Time: 0.0203303 (SIZE: 200000, append)
+Time: 0.0424151 (SIZE: 1000000, create_deque)
+Time: 0.0758220 (SIZE: 1000000, popleft)
+Time: 0.0885375 (SIZE: 1000000, append)
+Time: 0.6096373 (SIZE: 1000000, create_simple_queue)
+Time: 0.3654815 (SIZE: 1000000, popleft)
+Time: 0.5831680 (SIZE: 1000000, append)

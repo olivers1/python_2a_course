@@ -2,3 +2,4 @@ abstraction.py
 Assignment 2 solution proposal.py
 hello_world.py
 .DS_Store
+__pycache__
