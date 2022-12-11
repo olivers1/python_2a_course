@@ -35,12 +35,13 @@ IMG_URLS = ["http://cdn.akc.org/content/article-body-image/lab_puppy_dog_picture
 SAVE_FOLDER = "/Users/olivers/Documents/Programmering/vscode/python/python_2a_course/save_folder"  # TODO
 
 def timer(func):
-    def timer_wrapper():
+    def timer_wrapper(*args):
         start = time.time()
-        result = func()
+        func(*args)
         end = time.time()
-        print(f"Execution time: {(end - start):.7f} seconds ({func.__name__})")
-        return result
+        exec_time = end - start
+        print(f"Execution time: {(exec_time):.7f} seconds ({func.__name__})")
+        return exec_time
     return timer_wrapper
 
 
@@ -64,7 +65,7 @@ def worker(queue):
         download_img(url)
         queue.task_done()
 
-
+@timer
 def create_and_run_threads(queue):
     num_threads = 2
     for _ in range(num_threads):
@@ -77,6 +78,7 @@ def urls_as_list():
         url_list.append(url)
     return url_list
 
+@timer
 def create_and_run_pool(iterable):
     with Pool(8) as p:
         p.map(download_img, iterable)
@@ -90,7 +92,6 @@ def download_img(url):
     with open(file_path, "wb") as img:
         img.write(img_bytes)
         print(f"Downloading image: {img_name}")
-
 
 
 
