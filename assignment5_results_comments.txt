@@ -1,5 +1,5 @@
-I was not able to provide any results for single_queue nor request_queue function runs because when running those functions 
-trying to fetch the urls i got error message 403 (see below). I tried to resolve the problem but did not manage to do that.
+I could run request_pool function properly and get results from it, but I was not able to provide any results for single_queue nor request_queue function 
+runs. When running those functions  trying to fetch the urls i got error message 403 (see below). I tried to resolve the problem but did not manage to do that.
 
 File "/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 643, in http_error_default
     raise HTTPError(req.full_url, code, msg, hdrs, fp)
